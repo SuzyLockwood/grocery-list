@@ -1,0 +1,30 @@
+{
+  "name": "grocery-list",
+  "version": "1.0.0",
+  "description": "A multi-list-making, multi-user application",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "set NODE_ENV=test && jasmine",
+    "start": "node src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SuzyLockwood/grocery-list.git"
+  },
+  "author": "Suzy Lockwood",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SuzyLockwood/grocery-list/issues"
+  },
+  "homepage": "https://github.com/SuzyLockwood/grocery-list#readme",
+  "devDependencies": {
+    "jasmine": "^3.0.0",
+    "request": "^2.83.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.1.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4"
+  }
+}
