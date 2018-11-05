@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../static/partials/head.ejs %>
+</head>
+
+<body>
+    <% include ../static/partials/navbar.ejs %>
+
+    <main class="container">
+
+        <h1>Edit Item</h1>
+
+        <form id="item-update-form" action="/lists/<%=item.listId %>/items/<%=item.id %>/update" method="POST">
+            <div class="form-group">
+                <label for="name">Update name:</label>
+                <input value="<%= item.name %>" type="text" class="form-control" name="name" aria-describedby="nameHelp"
+                    placeholder="Enter item name">
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </form>
+        </form>
+    </main>
+
+    <% include ../static/partials/baseScripts.ejs %>
+
+</body>
+
+</html>

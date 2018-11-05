@@ -12,13 +12,35 @@
         <h1>
             <%= list.title %>
         </h1>
-        <a href="/lists/<%= list.id %>/edit" class="btn btn-warning">Edit</a>
-        <form style="display:initial" action="/lists/<%= list.id %>/destroy" method="post">
-            <button type="submit" class="btn btn-danger">Delete</button>
-        </form>
         <p>
             <%= list.description %>
         </p>
+        <a href="/lists/<%= list.id %>/edit" class="btn btn-sm btn-warning">Edit</a>
+        <form style="display:initial" action="/lists/<%= list.id %>/destroy" method="post">
+            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+        </form>
+        <hr>
+
+        <form action="/lists/<%= list.id %>/items/create" method="post">
+            <input type="text" class="form-control" name="name" placeholder="Add new list item..." required />
+            <button type="submit" class="btn btn-primary">Add Item</button>
+        </form>
+        <hr>
+
+        <h1>List Items</h1>
+        <div class="container">
+            <ul class="list-group">
+                <% list.items.forEach((item) => { %>
+                <li class="list-group-item">
+                    <%= item.name %> </a>
+                </li>
+                <a href="/lists/<%=item.listId %>/items/<%=item.id %>/edit" class="btn btn-sm btn-warning">Edit</a>
+                <form style="display:initial" action="/lists/<%=item.listId %>/items/<%=item.id %>/destroy" method="post">
+                    <input type="submit" class="btn btn-sm btn-danger" value="Delete">
+                </form>
+                <% }) %>
+            </ul>
+        </div>
     </main>
 
     <% include ../static/partials/baseScripts.ejs %>
