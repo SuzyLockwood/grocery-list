@@ -18,8 +18,13 @@ module.exports = {
         res.redirect('/users/sign_up');
       } else {
         passport.authenticate('local')(req, res, () => {
-          req.flash('notice', 'You have successfully signed up!');
-          res.redirect('/');
+          req.flash(
+            'notice',
+            'Successfully Signed Up! Nice to meet you, ' +
+              req.body.username +
+              '.'
+          );
+          res.redirect('/lists');
         });
       }
     });
@@ -33,14 +38,14 @@ module.exports = {
         req.flash('notice', 'Sign in failed. Please try again.');
         res.redirect('/users/sign_in');
       } else {
-        req.flash('notice', 'You have successfully signed in!');
-        res.redirect('/');
+        req.flash('notice', 'Welcome back, ' + req.user.username + '!');
+        res.redirect('/lists');
       }
     });
   },
   signOut(req, res, next) {
     req.logout();
-    req.flash('notice', 'You have successfully signed out!');
+    req.flash('notice', 'You have successfully logged out.');
     res.redirect('/');
   }
 };

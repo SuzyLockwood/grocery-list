@@ -16,16 +16,13 @@ module.exports = {
       completed: false,
       listId: req.params.id
     };
-    // if (req.user) {
     itemQueries.addItem(newItem, (err, item) => {
       if (err) {
-        req.flash('error', err);
+        res.redirect(500, `/lists/${newItem.listId}`);
+      } else {
+        res.redirect(303, `/lists/${req.params.id}`);
       }
     });
-    // } else {
-    //   req.flash('notice', 'You must be signed in to do that.');
-    // }
-    res.redirect(req.headers.referer);
   },
   destroy(req, res, next) {
     itemQueries.deleteItem(req.params.id, (err, deletedRecordsCount) => {
