@@ -9,29 +9,57 @@
     <% include ../static/partials/navbar.ejs %>
     <main class="container">
         <% include ../static/partials/messages.ejs %>
-        <h1>Sign up</h1>
+        <h1 class="title is-2">Sign up</h1>
+
         <form action="/users" method="post">
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" class="form-control" name="username" placeholder="Enter Username">
+            <div class="field">
+                <label class="label">Username:</label>
+                <div class="control has-icons-left has-icons-right">
+                    <input class="input" name="username" type="text" placeholder="Enter username">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-user"></i>
+                    </span>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email">
-                <small class="text-muted" id="emailHelp">email address must be a valid address</small>
+
+            <div class="field">
+                <label class="label">Email:</label>
+                <p class="control has-icons-left has-icons-right">
+                    <input class="input" type="email" name="email" placeholder="Enter email">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-envelope"></i>
+                    </span>
+                </p>
             </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" class="form-control" name="password" aria-describedby="passwordHelp" placeholder="Enter password">
-                <small class="text-muted" id="passwordHelp">password must match confirmation below</small>
+
+            <div class="field">
+                <label class="label">Password:</label>
+                <p class="control has-icons-left">
+                    <input class="input" type="password" name="password" placeholder="Enter password">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                    <p class="help">password must match confirmation below</p>
+                </p>
             </div>
-            <div class="form-group">
-                <label for="passwordConfirmation">Password confirmation:</label>
-                <input type="password" class="form-control" name="passwordConfirmation" aria-describedby="passwordHelp"
-                    placeholder="Enter password confirmation">
+
+            <div class="field">
+                <label class="label">Password Confirmation:</label>
+                <p class="control has-icons-left">
+                    <input class="input" type="password" name="passwordConfirmation" placeholder="Enter password confirmation">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                </p>
             </div>
-            <button type="submit" class="btn btn-primary">Sign up</button>
+
+            <div class="field">
+                <p class="control">
+                    <button type="submit" class="button is-success">Sign up</button>
+                </p>
+            </div>
         </form>
+
     </main>
     <% include ../static/partials/baseScripts.ejs %>
 </body>

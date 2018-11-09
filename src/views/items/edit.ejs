@@ -7,22 +7,28 @@
 
 <body>
     <% include ../static/partials/navbar.ejs %>
-
     <main class="container">
+        <% include ../static/partials/messages.ejs %>
 
-        <h1>Edit Item</h1>
+        <h1 class="title is-2">Edit Item</h1>
 
         <form id="item-update-form" action="/lists/<%=item.listId %>/items/<%=item.id %>/update" method="POST">
-            <div class="form-group">
-                <label for="name">Update name:</label>
-                <input value="<%= item.name %>" type="text" class="form-control" name="name" aria-describedby="nameHelp"
-                    placeholder="Enter item name">
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Save changes</button>
+
+            <div class="field">
+                <div class="control">
+                    <label class="label">Update name:</label>
+                    <input value="<%= item.name %>" type="text" class="input" name="name" placeholder="Enter item name">
                 </div>
             </div>
+            <div style="display:inline">
+                <button type="submit" class="button is-link">Save Changes</button>
+                <a class="button is-danger" href="/lists/<%=item.listId %>"><i style="padding-right: 5px" class="fas fa-ban"></i>
+                    Cancel</a>
+            </div>
         </form>
-        </form>
+
+
+
     </main>
 
     <% include ../static/partials/baseScripts.ejs %>

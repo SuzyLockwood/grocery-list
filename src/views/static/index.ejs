@@ -9,38 +9,52 @@
 
     <!-- Navigation -->
     <% include ./partials/navbar.ejs %>
-    <% include ./partials/messages.ejs %>
 
     <!-- Page Content -->
     <main class="container">
+        <% include ./partials/messages.ejs %>
 
-        <!-- Jumbotron Header -->
-        <header class="jumbotron my-4">
-            <h1 class="display-3">Welcome to Forgot The Milk</h1>
-            <p class="lead">Forgot The Milk is the smart to-do app for busy people. You'll never forget the milk (or
-                anything else) again.</p>
-            <a href="/users/sign_up" class="btn btn-primary btn-lg">Sign up</a>
+        <!-- Hero Header -->
+        <header class="hero is-medium is-dark is-bold">
+            <div class="hero-body">
+                <div class="container">
+                    <h1 class="title is-2">Welcome to Forgot The Milk</h1>
+                    <h3 class="subtitle is-4">Forgot The Milk is the smart to-do app for busy people. You'll never
+                        forget
+                        the milk (or anything else) again.</h3>
+
+                    <figure class="image is-128x128">
+                        <img src="https://cdn3.iconfinder.com/data/icons/fitness-24/512/6-512.png">
+                    </figure>
+                    <a href="/users/sign_up" class="button is-link is-outlined is-large">Sign
+                        up</a>
+                </div>
+            </div>
         </header>
 
         <!-- Page Features -->
-        <section class="row text-center">
-
-            <section class="col-lg-4">
-                <h4 class="card-title">To-Do List Management</h4>
-                <p class="card-text">Get to-dos out of your head, and let the app remember for you.</p>
+        <div class="level">
+            <section class="section">
+                <div class="card">
+                    <h4 class="card-header-title">To-Do List Management</h4>
+                    <p class="card-content">Get to-dos out of your head, and let the app remember for you.</p>
+                </div>
             </section>
 
-            <section class="col-lg-4">
-                <h4 class="card-title">User Collaboration</h4>
-                <p class="card-text">Share your lists with others to get things done faster!</p>
+            <section class="section">
+                <div class="card">
+                    <h4 class="card-header-title">User Collaboration</h4>
+                    <p class="card-content">Share your lists with others to get things done faster!</p>
+                </div>
             </section>
 
-            <section class="col-lg-4">
-                <h4 class="card-title">Real-Time Updates</h4>
-                <p class="card-text">Stay magically in sync on all of your devices.</p>
+            <section class="section">
+                <div class="card">
+                    <h4 class="card-header-title">Real-Time Updates</h4>
+                    <p class="card-content">Stay magically in sync on all of your devices.</p>
+                </div>
             </section>
-
-        </section>
+        </div>
         <!-- /.row -->
 
     </main>

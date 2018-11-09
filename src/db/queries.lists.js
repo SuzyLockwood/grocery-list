@@ -42,7 +42,7 @@ module.exports = {
             callback(null, list);
           });
         } else {
-          req.flash('notice', 'You are not authorized to do that.');
+          req.flash('error', 'You are not authorized to do that.');
           callback(401);
         }
       })
@@ -68,7 +68,7 @@ module.exports = {
             callback(err);
           });
       } else {
-        req.flash('notice', 'You are not authorized to do that.');
+        req.flash('error', 'You are not authorized to do that.');
         callback('Forbidden');
       }
     });

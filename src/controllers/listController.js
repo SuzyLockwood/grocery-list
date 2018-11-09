@@ -22,9 +22,9 @@ module.exports = {
     };
     listQueries.addList(newList, (err, list) => {
       if (err) {
-        console.log(err);
         res.redirect(500, '/lists/new');
       } else {
+        req.flash('success', req.body.title + ' successfully added.');
         res.redirect(303, `/lists/${list.id}`);
       }
     });
@@ -39,10 +39,11 @@ module.exports = {
     });
   },
   destroy(req, res, next) {
-    listQueries.deleteList(req, (err, game) => {
+    listQueries.deleteList(req, (err, list) => {
       if (err) {
         res.redirect(err, `/lists/${req.params.id}`);
       } else {
+        req.flash('success', 'List has been successfully deleted.');
         res.redirect(303, '/lists');
       }
     });

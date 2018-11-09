@@ -28,5 +28,13 @@ module.exports = {
       next();
     });
     app.use(express.static(path.join(__dirname, '..', 'assets')));
+    // middleware to add currentUser to all templates
+    // also added req.flash messages to all templates
+    app.use(function(req, res, next) {
+      res.locals.currentUser = req.user;
+      res.locals.error = req.flash('error');
+      res.locals.success = req.flash('success');
+      next();
+    });
   }
 };

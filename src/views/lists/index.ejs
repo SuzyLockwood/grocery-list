@@ -9,12 +9,13 @@
     <main class="container">
         <% include ../static/partials/navbar.ejs %>
         <% include ../static/partials/messages.ejs %>
-        <h1>Lists</h1>
-        <a href="/lists/new" class="btn btn-success">New List</a>
-
-        <ul class="list-group">
+        <h1 class="title is2">Lists</h1>
+        <a href="/lists/new" class="button is-success"><i class="fas fa-plus" style="padding-right: 5px"></i>New
+            List</a>
+        <hr>
+        <ul class="list">
             <% lists.forEach((list) => { %>
-            <li class="list-group-item">
+            <li class="list-item">
                 <a href="/lists/<%= list.id %>">
                     <%= list.title %> </a>
             </li>

@@ -1,31 +1,78 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="/">Forgot The Milk</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/lists">Lists</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
-                <% if(currentUser) { %>
-                <li class="nav-item">
-                    <a class="nav-link" href="/users/sign_out">Sign out</a>
-                </li>
-                <% } else { %>
-                <li class="nav-item">
-                    <a class="nav-link" href="/users/sign_up">Sign up</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/users/sign_in">Sign in</a>
-                </li>
-                <% }%>
-            </ul>
+<div class="container" style="padding-bottom: 15px">
+    <nav class="navbar is-light" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/"><img src="https://cdn2.iconfinder.com/data/icons/kailoon/myicon/milk.png"
+                    style="padding-right: 5px">Forgot
+                The Milk</a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
         </div>
-    </div>
+
+        <div id="navMenu" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="/">
+                    Home
+                </a>
+
+                <a class="navbar-item" href="/lists">
+                    Lists
+                </a>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        More
+                    </a>
+
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item">
+                            About
+                        </a>
+                        <a class="navbar-item">
+                            Jobs
+                        </a>
+                        <a class="navbar-item">
+                            Contact
+                        </a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item">
+                            Report an issue
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <% if(currentUser) { %>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-link" href="#">
+                            <strong>Signed In As
+                                <%= currentUser.username %></strong>
+                        </a>
+                        <a class="button is-light" href="/users/sign_out">
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <% } else { %>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-link" href="/users/sign_up">
+                            <strong>Sign up</strong>
+                        </a>
+                        <a class="button is-light" href="/users/sign_in">
+                            Login
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <% }%>
+        </div>
+</div>
 </nav>
+</div>
