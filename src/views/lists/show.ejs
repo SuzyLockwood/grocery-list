@@ -39,7 +39,14 @@
 
         <h1 class="title is-2">List Items</h1>
         <div class="container">
+            <em>(total items:
+                <%= list.items.length %>)</em>
             <nav class="level">
+                <% if (list.items.length === 0) { %>
+                <h5 class="subtitle is-5">
+                    <em>No items yet. Try adding one!</em>
+                </h5>
+                <% } else { %>
                 <ul class="list">
                     <% list.items.forEach((item) => { %>
                     <li class="list-item" style=<%=item.completed ? "text-decoration:line-through;" : "" %>>
@@ -59,6 +66,7 @@
                     </li>
                     <% }) %>
                 </ul>
+                <% } %>
             </nav>
         </div>
     </main>

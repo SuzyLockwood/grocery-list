@@ -15,7 +15,8 @@ module.exports = {
   },
   getList(id, callback) {
     return List.findById(id, {
-      include: [{ all: true, nested: true }]
+      include: [{ all: true, nested: true }],
+      order: [[{ model: Item, as: 'items' }, 'completed']]
     })
       .then(list => {
         callback(null, list);
