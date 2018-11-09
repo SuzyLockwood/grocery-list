@@ -42,10 +42,11 @@
             <nav class="level">
                 <ul class="list">
                     <% list.items.forEach((item) => { %>
-                    <li class="list-item">
+                    <li class="list-item" style=<%=item.completed ? "text-decoration:line-through;" : "" %>>
                         <%= item.name %>
 
-                        <form style="display:initial; padding-left:30px;" action="/lists/<%=item.listId %>/items/<%=item.id %>/destroy"
+                        <form style="
+                        display:initial; padding-left:30px;" action="/lists/<%=item.listId %>/items/<%=item.id %>/destroy"
                             method="post">
                             <button type="submit" style="float:right"><i class="fas fa-trash"></i>
                                 Delete</button>

@@ -14,12 +14,25 @@
 
         <form id="item-update-form" action="/lists/<%=item.listId %>/items/<%=item.id %>/update" method="POST">
 
-            <div class="field">
+            <div class="field" style="padding-bottom: 15px">
                 <div class="control">
                     <label class="label">Update name:</label>
                     <input value="<%= item.name %>" type="text" class="input" name="name" placeholder="Enter item name">
                 </div>
             </div>
+
+            <div class="control" style="padding-bottom: 25px">
+                <label class="label">Mark Item as Purchased?</label>
+                <label class="radio">
+                    <input type="radio" name="completed" value="true" <%=item.completed ? 'checked' : '' %>>
+                    Purchased
+                </label>
+                <label class="radio">
+                    <input type="radio" name="completed" value="false" <%=item.completed ? '' : 'checked' %>>
+                    Not Purchased
+                </label>
+            </div>
+
             <div style="display:inline">
                 <button type="submit" class="button is-link">Save Changes</button>
                 <a class="button is-danger" href="/lists/<%=item.listId %>"><i style="padding-right: 5px" class="fas fa-ban"></i>
