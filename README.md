@@ -1,88 +1,67 @@
-# Project Title
+# Forgot The Milk
 
-One Paragraph of project description goes here
+Forgot The Milk is a multi-user, multi-group task management and assignment application designed to be used as a personal to-do tracker, a group task management system, or a ticketing system for organizations.
 
-## Getting Started
+**The best way to see how Forgot The Milk works is to visit the live demo site at [suzylockwood-grocerylist](https://dashboard.heroku.com/apps/suzylockwood-grocerylist)!**
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+## Features
 
-### Prerequisites
-
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
+* Authentication and authorization capabilities
+* Public-facing and private lists
+* Updates synced across users and devices
+* List items can be marked and unmarked as purchased 
+* User groups for lists *(work in progress)*
+* Assigned tasks *(work in progress)*
+* Search *(work in progress)*
+* Task prioritization *(work in progress)*
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [Node](https://nodejs.org/en/) - Runtime environment
+* [Express](https://expressjs.com/) - The web framework used
+* [PostgreSQL](https://www.postgresql.org/) - Database backend
+* [Sequelize](http://docs.sequelizejs.com/) - ORM 
+* [EJS](https://ejs.co/) - View engine
+* [Bulma](https://bulma.io) - The Frontend/CSS framework used -- my first time using it instead of Bootstrap!
+* [Jasmine](https://jasmine.github.io/) - Testing framework
 
-## Contributing
+## Technical Decisions - For Bloc Team
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+#### Problem:  
+```
+Shared Real-time Grocery List
+Create a grocery list web-application that can be shared in real-time by multiple people.
+Imagine you have a 4-person family, and each of you has a smart-phone with the web application running. 
+When you arrive at the grocery store, you split up to shop individually. 
+This allows the groceries to be acquired in the fastest possible way. 
+Each person has the same grocery list on their phone. 
+When one of you checks a grocery item off the shared list, it updates on everyone else’s list, 
+preventing anyone from purchasing duplicate items. 
+Similarly, items added to the list on any phone update to the same list.
+```
 
-## Versioning
+#### Solution: 
+Application that allows real-time updates across devices. 
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+I used Node for three main reasons: 
+* It was designed to optimize throughput and scalability in web applications and is a good solution for many common web-development problems (e.g. real-time web applications). 
+* The code itself is written in "plain old JavaScript", which means that less time is spent dealing with "context shift" between languages when I'm writing both client-side and server-side code. As a new developer, I appreciate this even more as it allows me to focus on developing the application as opposed to learning the nuances between two languages. 
+* Node offers a great package manager, npm, and the amount of available open-source tools in npm’s registry is massive and growing fast.
 
-## Authors
+Source: [Express/Node introduction](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction)
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+#### If I had more time:
+* Implement some of the outstanding pages (About, Contact Us, Report Issue) and features (some of which are mentioned in features section). 
+* Add even more tests. 
+* Better error messaging, some edge cases not considered. 
+* Solve the issue of users being able to add duplicate items to list which can conflict with intention for users not to purchase duplicate items. Perhaps with an "are you sure" error message or denying altogether. 
+* Improve UI attractiveness, flow and consistency further.  
 
-## License
+## Screenshots
+* Home Page 
+![forgot the milk home](https://user-images.githubusercontent.com/40550878/48399391-58af2d80-e6d8-11e8-87fe-2e5296fabd76.PNG)
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* Example List
+![list](https://user-images.githubusercontent.com/40550878/48399396-5baa1e00-e6d8-11e8-957b-36869aa0ba8e.PNG)
 
