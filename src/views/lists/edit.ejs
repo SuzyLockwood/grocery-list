@@ -25,6 +25,17 @@
                     <textarea rows="4" class="input" name="description" placeholder="Enter short list description"><%= list.description %></textarea>
                 </div>
             </div>
+            <div class="control" style="padding-bottom: 25px">
+                <label class="label">Make List Private or Keep Public?</label>
+                <label class="radio">
+                    <input type="radio" name="private" value="true" <%=list.private ? 'checked' : '' %>>
+                    Private
+                </label>
+                <label class="radio">
+                    <input type="radio" name="private" value="false" <%=list.private ? '' : 'checked' %>>
+                    Public
+                </label>
+            </div>
             <div style="display:inline">
                 <button type="submit" class="button is-link">Save Changes</button>
                 <a class="button is-danger" href="/lists/<%=list.id %>"><i style="padding-right: 5px" class="fas fa-ban"></i>

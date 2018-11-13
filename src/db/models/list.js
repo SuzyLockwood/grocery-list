@@ -11,6 +11,11 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false
       },
+      private: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+        allowNull: false
+      },
       userId: {
         type: DataTypes.INTEGER,
         allowNull: false
@@ -28,5 +33,12 @@ module.exports = (sequelize, DataTypes) => {
       as: 'items'
     });
   };
+  //so that I can add lists to user profile
+  List.addScope('userLists', userId => {
+    return {
+      where: { userId: userId },
+      order: [['createdAt', 'DESC']]
+    };
+  });
   return List;
 };

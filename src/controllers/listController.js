@@ -18,13 +18,14 @@ module.exports = {
     let newList = {
       title: req.body.title,
       description: req.body.description,
+      private: req.body.private,
       userId: req.user.id
     };
     listQueries.addList(newList, (err, list) => {
       if (err) {
         res.redirect(500, '/lists/new');
       } else {
-        req.flash('success', req.body.title + ' successfully added.');
+        req.flash('success', '"' + req.body.title + '" successfully added.');
         res.redirect(303, `/lists/${list.id}`);
       }
     });

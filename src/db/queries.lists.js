@@ -5,7 +5,11 @@ const Authorizer = require('../policies/application');
 
 module.exports = {
   getAllLists(callback) {
-    return List.all()
+    return List.all({
+      where: {
+        private: false
+      }
+    })
       .then(lists => {
         callback(null, lists);
       })

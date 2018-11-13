@@ -30,10 +30,10 @@
                             About
                         </a>
                         <a class="navbar-item">
-                            Jobs
+                            Blog
                         </a>
                         <a class="navbar-item">
-                            Contact
+                            Contact Us
                         </a>
                         <hr class="navbar-divider">
                         <a class="navbar-item">
@@ -48,8 +48,8 @@
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="buttons">
-                        <a class="button is-link" href="#">
-                            <strong>Signed In As
+                        <a class="button is-link" href="/users/<%= currentUser.id %>">
+                            <strong>Logged in as
                                 <%= currentUser.username %></strong>
                         </a>
                         <a class="button is-light" href="/users/sign_out">

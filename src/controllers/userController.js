@@ -20,7 +20,7 @@ module.exports = {
         passport.authenticate('local')(req, res, () => {
           req.flash(
             'success',
-            'Successfully Signed Up! Nice to meet you, ' +
+            'Successfully signed up! Nice to meet you, ' +
               req.body.username +
               '.'
           );
@@ -47,5 +47,15 @@ module.exports = {
     req.logout();
     req.flash('success', 'You have successfully logged out.');
     res.redirect('/');
+  },
+  show(req, res, next) {
+    userQueries.getUser(req.params.id, (err, result) => {
+      if (err || result.user === undefined) {
+        req.flash('notice', 'No user found with that ID.');
+        res.redirect('/');
+      } else {
+        res.render('users/show', { ...result });
+      }
+    });
   }
 };
