@@ -4,32 +4,44 @@ const base = 'http://localhost:3000/lists';
 const sequelize = require('../../src/db/models/index').sequelize;
 const List = require('../../src/db/models').List;
 const Item = require('../../src/db/models').Item;
+const User = require('../../src/db/models').User;
 
 describe('routes : items', () => {
   beforeEach(done => {
     this.list;
     this.item;
+    this.user;
 
     sequelize.sync({ force: true }).then(res => {
-      List.create({
-        title: 'Winter Games',
-        description: 'Post your Winter Games stories.'
-      }).then(list => {
-        this.list = list;
+      User.create({
+        username: 'tester',
+        email: 'starman@tesla.com',
+        password: 'Trekkie4lyfe'
+      }).then(user => {
+        this.user = user;
 
-        Item.create({
-          name: 'Tomatoes',
-          completed: false,
-          listId: this.list.id
-        })
-          .then(item => {
-            this.item = item;
-            done();
+        List.create({
+          title: 'Winter Games',
+          description: 'Post your Winter Games stories.',
+          private: false,
+          userId: this.user.id
+        }).then(list => {
+          this.list = list;
+
+          Item.create({
+            name: 'Tomatoes',
+            completed: false,
+            listId: this.list.id
           })
-          .catch(err => {
-            console.log(err);
-            done();
-          });
+            .then(item => {
+              this.item = item;
+              done();
+            })
+            .catch(err => {
+              console.log(err);
+              done();
+            });
+        });
       });
     });
   });
@@ -38,10 +50,12 @@ describe('routes : items', () => {
       const options = {
         url: `${base}/${this.list.id}/items/create`,
         form: {
-          name: 'Milk'
+          name: 'Milk',
+          completed: false,
+          listId: this.list.id
         }
       };
-      request.item(options, (err, res, body) => {
+      request.post(options, (err, res, body) => {
         Item.findOne({ where: { name: 'Milk' } })
           .then(item => {
             expect(item).not.toBeNull();
@@ -61,10 +75,12 @@ describe('routes : items', () => {
       const options = {
         url: `${base}/${this.list.id}/items/${this.item.id}/update`,
         form: {
-          name: 'Juice'
+          name: 'Juice',
+          completed: false,
+          listId: this.list.id
         }
       };
-      request.item(options, (err, res, body) => {
+      request.post(options, (err, res, body) => {
         expect(err).toBeNull();
         Item.findOne({
           where: { id: this.item.id }
@@ -76,8 +92,8 @@ describe('routes : items', () => {
     });
     describe('POST /lists/:listId/items/:id/destroy', () => {
       it('should delete the item with the associated ID', done => {
-        expect(item.id).toBe(1);
-        request.item(
+        expect(this.item.id).toBe(1);
+        request.post(
           `${base}/${this.list.id}/items/${this.item.id}/destroy`,
           (err, res, body) => {
             Item.findById(1).then(item => {

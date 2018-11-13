@@ -5,6 +5,7 @@ let users = [];
 
 for (let i = 1; i <= 5; i++) {
   users.push({
+    id: i,
     username: faker.internet.userName(),
     email: faker.internet.email(),
     password: faker.internet.password(),
