@@ -17,6 +17,9 @@ Forgot The Milk is a multi-user, multi-group task management and assignment appl
 
 ## Built With
 
+* [HTML5](https://www.w3.org/TR/html5/) - Markup language
+* [JavaScript](https://www.javascript.com/) - Programming language
+* [CSS3](https://www.w3.org/TR/css-2018/) - Style sheet language
 * [Node](https://nodejs.org/en/) - Runtime environment
 * [Express](https://expressjs.com/) - The web framework used
 * [PostgreSQL](https://www.postgresql.org/) - Database backend
@@ -25,7 +28,7 @@ Forgot The Milk is a multi-user, multi-group task management and assignment appl
 * [Bulma](https://bulma.io) - The Frontend/CSS framework used -- my first time using it instead of Bootstrap!
 * [Jasmine](https://jasmine.github.io/) - Testing framework
 
-## Technical Decisions - For Bloc Team
+## Technical Decisions 
 
 #### Problem:  
 ```
@@ -51,7 +54,7 @@ I used Node for three main reasons:
 Source: [Express/Node introduction](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction)
 
 
-#### If I had more time:
+#### To do with more time:
 * Implement some of the outstanding pages (About, Contact Us, Report Issue) and features (some of which are mentioned in features section). 
 * Add even more tests. 
 * Better error messaging, some edge cases not considered. 
